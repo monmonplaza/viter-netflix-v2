@@ -13,8 +13,6 @@ const Homepage = () => {
       <SliderMovie />
       <SliderMovie />
       <SliderMovie />
-
-      <div className="h-[50vh]"></div>
     </div>
   );
 };

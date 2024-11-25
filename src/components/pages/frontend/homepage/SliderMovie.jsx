@@ -18,7 +18,7 @@ const SliderMovie = () => {
 
   return (
     <>
-      <section className="bg-dark pt-10  relative px-4 ">
+      <section className="bg-dark -mt-5  relative px-4 ">
         <h4 className="text-white mb-5">Trending Movies</h4>
         <Swiper
           modules={[Pagination]}
@@ -29,7 +29,7 @@ const SliderMovie = () => {
           onSwiper={(it) => (sliderRef.current = it)}
           className="mySwiper"
           spaceBetween={20}
-          slidesPerView={6}
+          slidesPerView={8}
         >
           {Array.from(Array(10).keys()).map((i) => (
             <SwiperSlide key={i}>
@@ -47,21 +47,21 @@ const SliderMovie = () => {
                     className="w-[350px] h-[180px] object-cover"
                   />
 
-                  <div className="bg-dark slider-zoom-info p-4 rounded-b-md shadow-lg invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all ease-linear duration-200">
+                  <div className="bg-dark slider-zoom-info p-4 rounded-b-md shadow-lg invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all ease-linear duration-200 ">
                     <ul className="flex gap-2">
                       <li>
-                        <button className="size-[40px] center-all rounded-full border border-line">
-                          <Play />
+                        <button className="size-[30px] center-all rounded-full border border-line">
+                          <Play size={20} />
                         </button>
                       </li>
                       <li className="mr-auto">
-                        <button className="size-[40px] center-all rounded-full border border-line">
-                          <Plus />
+                        <button className="size-[30px] center-all rounded-full border border-line">
+                          <Plus size={20} />
                         </button>
                       </li>
                       <li>
-                        <button className="size-[40px] center-all rounded-full border border-line">
-                          <ChevronDown />
+                        <button className="size-[30px] center-all rounded-full border border-line">
+                          <ChevronDown size={20} />
                         </button>
                       </li>
                     </ul>
