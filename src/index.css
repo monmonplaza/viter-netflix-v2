@@ -311,9 +311,12 @@ input::-webkit-inner-spin-button {
   height: 100%;
   object-fit: cover;
 }
-.slider-info > * {
+.slider-info {
   transition: 0.5s ease;
 }
+.slider-card .slider-info {
+  transform: scale(0);
+}
 .slider-card:hover .slider-info {
-  transform: scale(1.5);
+  transform: scale(1);
 }

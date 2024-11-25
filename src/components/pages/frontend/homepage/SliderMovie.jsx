@@ -11,39 +11,23 @@ const SliderMovie = () => {
   return (
     <>
       <section className="px-10">
-        <Swiper
-          modules={[Pagination]}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          onSwiper={(it) => (sliderRef.current = it)}
-          className="mySwiper"
-          spaceBetween={20}
-          slidesPerView={6}
-        >
-          <SwiperSlide>
-            <div className="slider-card relative ">
-              <img
-                src={`${imgPath}/wedding-singer.jpg`}
-                alt=""
-                className="w-full  object-cover"
-              />
+        <div className="slider-card relative ">
+          <img
+            src={`${imgPath}/wedding-singer.jpg`}
+            alt=""
+            className=" object-cover -z-1 w-[200px] h-[150px]"
+          />
 
-              <div className="slider-info absolute top-0 left-0 z-50">
-                <img
-                  src={`${imgPath}/wedding-singer.jpg`}
-                  alt=""
-                  className="w-full  object-cover"
-                />
+          <div className="slider-info absolute w-[200px] h-[150px] top-0 left-0 z-50">
+            <img
+              src={`${imgPath}/wedding-singer.jpg`}
+              alt=""
+              className="w-full  object-cover"
+            />
 
-                <div className="bg-red-400">
-                  asjkldjf;aklsdjf;klasjd;flkasjd
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+            <div className="bg-red-400">asjkldjf;aklsdjf;klasjd;flkasjd</div>
+          </div>
+        </div>
 
         <button onClick={() => sliderRef.current?.slidePrev()}>Prev</button>
 
