@@ -3,26 +3,25 @@ import { Bell, Info, Play, Search, Speaker, Volume2 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import { movies } from "../../backend/movies/datamovies";
 
 const Banner = () => {
+  const getFeatureMovie = movies[Math.floor(Math.random() * movies.length)];
+
   return (
     <>
       <section className="w-full h-[90vh]">
         <Header />
         <div className="banner text-white">
           <img
-            src={`${imgPath}/wedding-singer.jpg`}
+            src={`${imgPath}/${getFeatureMovie.movie_image}`}
             alt=""
             className="w-full h-screen object-cover"
           />
 
           <div className="absolute bottom-[200px] left-10 max-w-[700px]">
-            <h1 className="text-light mb-5">Wedding Singer</h1>
-            <p className="text-xl mb-10">
-              Robbie, a singer, and Julia, a waitress, are both engaged, but to
-              the wrong people. Fortune intervenes to help them discover each
-              other.
-            </p>
+            <h1 className="text-light mb-5">{getFeatureMovie.movie_title}</h1>
+            <p className="text-xl mb-10">{getFeatureMovie.movie_summary}</p>
 
             <div className="flex gap-5 items-center">
               <button className="rounded-md px-7 py-4 text-xl flex gap-2 items-center bg-white hover:bg-opacity-70 text-black font-semibold">
@@ -41,7 +40,7 @@ const Banner = () => {
             </button>
 
             <div className="w-[150px] p-4 py-3 bg-[rgba(109,109,110,0.5)] border-l-[4px] border-white text-xl">
-              13+
+              {getFeatureMovie.movie_rating}
             </div>
           </div>
         </div>

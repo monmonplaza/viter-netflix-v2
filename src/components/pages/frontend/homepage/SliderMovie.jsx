@@ -13,8 +13,12 @@ import {
   Play,
   Plus,
 } from "lucide-react";
-const SliderMovie = ({ title }) => {
+import { movies } from "../../backend/movies/datamovies";
+const SliderMovie = ({ title, filter = "" }) => {
   const sliderRef = React.useRef();
+
+  const getFilteredMovie = () =>
+    movies.filter((item) => item.movie_category === filter);
 
   return (
     <>
@@ -31,18 +35,18 @@ const SliderMovie = ({ title }) => {
           spaceBetween={20}
           slidesPerView={6}
         >
-          {Array.from(Array(10).keys()).map((i) => (
-            <SwiperSlide key={i}>
+          {getFilteredMovie().map((item, key) => (
+            <SwiperSlide key={key}>
               <div className="slider-card translate-y-5 group">
                 <img
-                  src={`${imgPath}/wedding-singer.jpg`}
+                  src={`${imgPath}/${item.movie_image}`}
                   alt=""
                   className="w-[350px] h-[180px] object-cover"
                 />
 
                 <div className="slider-zoom absolute top-0 left-0 transition-all ease-in-out duration-200 group-hover:scale-[1.1]">
                   <img
-                    src={`${imgPath}/wedding-singer.jpg`}
+                    src={`${imgPath}/${item.movie_image}`}
                     alt=""
                     className="w-[350px] h-[180px] object-cover"
                   />
@@ -67,9 +71,11 @@ const SliderMovie = ({ title }) => {
                     </ul>
                     <ul className="flex items-center gap-3 text-xs mt-5">
                       <li className="border-[1px] text-white border-white py-0.5 px-1.5 text-[10px] leading-none">
-                        <span className="translate-y-[1px] block">16+</span>
+                        <span className="translate-y-[1px] block">
+                          {item.movie_rating}
+                        </span>
                       </li>
-                      <li>2022</li>
+                      <li>{item.movie_year}</li>
                       <li className="border-[1px] border-white py-0.5 px-1.5 text-[8px] leading-none">
                         HD
                       </li>

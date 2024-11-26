@@ -21,16 +21,20 @@ import {
 } from "@/components/store/storeAction";
 import ModalDelete from "../partials/modals/ModalDelete";
 import ModalConfirm from "../partials/modals/ModalConfirm";
+import { movies } from "./datamovies";
+import ModalViewMovie from "./ModalViewMovie";
 
 const MoviesTable = () => {
   const { store, dispatch } = React.useContext(StoreContext);
-
+  const [movieInfo, setMovieInfo] = React.useState("");
+  let counter = 1;
   const handleEdit = () => {
     dispatch(setIsAdd(true));
   };
 
-  const handleView = () => {
+  const handleView = (item) => {
     dispatch(setIsView(true));
+    setMovieInfo(item);
   };
   const handleDelete = () => {
     dispatch(setIsDelete(true));
@@ -71,25 +75,24 @@ const MoviesTable = () => {
                   <IconServerError />
                 </td>
               </tr> */}
-
-              {Array.from(Array(6).keys()).map((i) => (
-                <tr key={i}>
-                  <td>{i + 1}.</td>
+              {movies.map((item, key) => (
+                <tr key={key}>
+                  <td>{counter++}.</td>
                   <td>
                     <Pills />
                   </td>
-                  <td>Wedding Singer</td>
-                  <td>1999</td>
-                  <td>1hr 40mins</td>
+                  <td>{item.movie_title}</td>
+                  <td>{item.movie_year}</td>
+                  <td>{item.movie_duration}</td>
                   <td>
                     <ul className="table-action ">
-                      {true ? (
+                      {item.movie_is_active ? (
                         <>
                           <li>
                             <button
                               className="tooltip"
                               data-tooltip="View"
-                              onClick={() => handleView()}
+                              onClick={() => handleView(item)}
                             >
                               <FileVideo />
                             </button>
@@ -139,6 +142,7 @@ const MoviesTable = () => {
       </div>
       {store.isDelete && <ModalDelete />}
       {store.isConfirm && <ModalConfirm />}
+      {store.isView && <ModalViewMovie movieInfo={movieInfo} />}
     </>
   );
 };

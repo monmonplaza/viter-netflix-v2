@@ -16,6 +16,7 @@ import useUploadPhoto from "@/components/custom-hook/useUploadPhoto";
 const ModalAddMovie = () => {
   const { dispatch } = React.useContext(StoreContext);
   const { uploadPhoto, handleChangePhoto, photo } = useUploadPhoto("");
+
   const handleClose = () => {
     dispatch(setIsAdd(false));
   };

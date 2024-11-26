@@ -45,8 +45,6 @@ const Movies = () => {
       {store.validate && <ModalValidation />}
       {store.error && <ModalError />}
       {store.success && <ToastSuccess />}
-
-      {store.isView && <ModalViewMovie />}
       {store.isAdd && <ModalAddMovie />}
     </>
   );

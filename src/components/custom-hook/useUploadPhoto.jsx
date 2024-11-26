@@ -1,6 +1,6 @@
 import React from "react";
-import { setError, setMessage } from "../store/storeAction.jsx";
 import { StoreContext } from "../store/storeContext.jsx";
+import { setError, setMessage } from "../store/storeAction.jsx";
 
 const useUploadPhoto = (url) => {
   const [photo, setPhoto] = React.useState(null);
@@ -22,7 +22,7 @@ const useUploadPhoto = (url) => {
     }
 
     const img = e.target.files[0];
-    if (img.size > 350000) {
+    if (img.size > 150000) {
       dispatch(setError(true));
       dispatch(
         setMessage(

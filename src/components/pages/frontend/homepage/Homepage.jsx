@@ -7,10 +7,9 @@ const Homepage = () => {
     <div>
       <Banner />
       <div className="py-24 mt-20 bg-dark">
-        <SliderMovie title="Top Picks" />
-        <SliderMovie title="International" />
-        <SliderMovie title="KDrama" />
-        <SliderMovie title="Anime" />
+        <SliderMovie title="International" filter="International" />
+        <SliderMovie title="KDrama" filter="KDrama" />
+        <SliderMovie title="Hot Anime" filter="Anime" />
       </div>
     </div>
   );
