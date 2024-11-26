@@ -6,8 +6,12 @@ const Homepage = () => {
   return (
     <div>
       <Banner />
-      <SliderMovie />
-      <div className="h-[50vh]"></div>
+      <div className="py-24 mt-20 bg-dark">
+        <SliderMovie title="Top Picks" />
+        <SliderMovie title="International" />
+        <SliderMovie title="KDrama" />
+        <SliderMovie title="Anime" />
+      </div>
     </div>
   );
 };

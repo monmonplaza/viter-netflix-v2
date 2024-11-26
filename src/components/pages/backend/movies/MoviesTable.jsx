@@ -14,6 +14,7 @@ import TableLoader from "../partials/TableLoader";
 import SpinnerTable from "../partials/spinners/SpinnerTable";
 import { StoreContext } from "@/components/store/storeContext";
 import {
+  setIsAdd,
   setIsConfirm,
   setIsDelete,
   setIsView,
@@ -23,6 +24,10 @@ import ModalConfirm from "../partials/modals/ModalConfirm";
 
 const MoviesTable = () => {
   const { store, dispatch } = React.useContext(StoreContext);
+
+  const handleEdit = () => {
+    dispatch(setIsAdd(true));
+  };
 
   const handleView = () => {
     dispatch(setIsView(true));
@@ -90,7 +95,11 @@ const MoviesTable = () => {
                             </button>
                           </li>
                           <li>
-                            <button className="tooltip" data-tooltip="Edit">
+                            <button
+                              className="tooltip"
+                              data-tooltip="Edit"
+                              onClick={() => handleEdit()}
+                            >
                               <FilePenLine />
                             </button>
                           </li>

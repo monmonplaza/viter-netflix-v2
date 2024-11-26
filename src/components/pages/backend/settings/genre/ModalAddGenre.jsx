@@ -26,10 +26,14 @@ const ModalAddGenre = () => {
             </div>
           </form>
           <div className="flex justify-end gap-3 mt-5">
-            <button className="btn btn-info">
+            <button className="btn btn-info" type="submit">
               <SpinnerButton /> Save
             </button>
-            <button className="btn btn-cancel" onClick={handleClose}>
+            <button
+              className="btn btn-cancel"
+              onClick={handleClose}
+              type="reset"
+            >
               Cancel
             </button>
           </div>

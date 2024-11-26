@@ -19,6 +19,7 @@ import {
 import ModalDelete from "../../partials/modals/ModalDelete";
 import ModalConfirm from "../../partials/modals/ModalConfirm";
 import ModalAddGenre from "../genre/ModalAddGenre";
+import ModalAddRatings from "./ModalAddRating";
 
 const Ratings = () => {
   const { store, dispatch } = React.useContext(StoreContext);
@@ -130,7 +131,7 @@ const Ratings = () => {
           </table>
         </div>
       </div>
-      {store.isAdd && <ModalAddGenre />}
+      {store.isAdd && <ModalAddRatings />}
       {store.isDelete && <ModalDelete />}
       {store.isConfirm && <ModalConfirm />}
     </>
